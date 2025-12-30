@@ -80,16 +80,65 @@ class AdminController
         loadView("admin/permits");
     }
 
+    public function business()
+    {
+        loadView("head");
+        loadView("admin/permits/business");
+    }
+
+    public function building()
+    {
+        loadView("head");
+        loadView("admin/permits/building");
+    }
+
+    public function workingpermit()
+    {
+        loadView("head");
+        loadView("admin/permits/workingpermit");
+    }
+
+    public function electrical()
+    {
+        loadView("head");
+        loadView("admin/permits/electrical");
+    }
+
+    public function cuttingtrees()
+    {
+        loadView("head");
+        loadView("admin/permits/cuttingtrees");
+    }
+
+    public function fencing()
+    {
+        loadView("head");
+        loadView("admin/permits/fencing");
+    }
+
+        public function filmpermit()
+    {
+        loadView("head");
+        loadView("admin/permits/filmpermit");
+    }
+
+
     public function clearances()
     {
         loadView("head");
-        loadView("admin/clearances");
+        loadView("admin/clearances/barangayClearances");
     }
 
-    public function blotters()
+    public function barangayIndigents()
     {
         loadView("head");
-        loadView("admin/blotters");
+        loadView("admin/clearances/barangayIndigents");
+    }
+
+    public function financialAssistance()
+    {
+        loadView("head");
+        loadView("admin/clearances/financialAssistance");
     }
 
     public function records()
@@ -113,6 +162,12 @@ class AdminController
     {
         loadView("head");
         loadView("admin/settings");
+    }
+
+    public function complaints()
+    {
+        loadView("head");
+        loadView("admin/blotters/complaints");
     }
 
     public function violations()

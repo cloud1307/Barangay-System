@@ -1,5 +1,7 @@
 <?php $currentUrl = $_SERVER['REQUEST_URI'];
 $isBlotterActive = strpos($currentUrl, '/admin/blotters') === 0;
+$isClearanceActive = strpos($currentUrl, '/admin/clearances') === 0;
+$isPermitsActive = strpos($currentUrl, '/admin/permits') === 0;
 ?>
 
 <!-- Main sidebar -->
@@ -97,36 +99,112 @@ $isBlotterActive = strpos($currentUrl, '/admin/blotters') === 0;
                     </a>
                 </li>
 
-                <li class="nav-item mb-1">
+                <!-- <li class="nav-item mb-1">
                     <a href="/admin/permits"
-                        class="nav-link nav-link-admin <?= ($currentUrl == '/admin/permits') ? 'active fw-bold' : '' ?>">
+                        class="nav-link nav-link-admin <?//= ($currentUrl == '/admin/permits') ? 'active fw-bold' : '' ?>">
                         <i class="ph ph-files"></i>
                         <span>
                             Permits
                         </span>
                     </a>
-                </li>
-
-
-                <li class="nav-item mb-1">
-                    <a href="/admin/clearances"
-                        class="nav-link nav-link-admin <?= ($currentUrl == '/admin/clearances') ? 'active fw-bold' : '' ?>">
-                        <i class="ph ph-file"></i>
-                        <span>
-                            Clearance
-                        </span>
-                    </a>
-                </li>
-
-                <!-- <li class="nav-item mb-1">
-                    <a href="/admin/blotters"
-                        class="nav-link nav-link-admin <?//= ($currentUrl == '/admin/blotters') ? 'active fw-bold' : '' ?>">
-                        <i class="ph ph-circle-wavy-warning"></i>
-                        <span>
-                            Blotter
-                        </span>
-                    </a>
                 </li> -->
+
+
+                <li class="nav-item nav-item-submenu <?= $isPermitsActive ? 'nav-item-expanded nav-item-open' : '' ?>">
+                    <a href="#" class="nav-link nav-link-admin <?= $isPermitsActive ? 'active fw-bold' : '' ?>">
+                        <i class="ph ph-files"></i>
+                        <span>Permits</span>
+                    </a>
+
+                    <ul class="nav-group-sub collapse <?= $isPermitsActive ? 'show' : '' ?>">
+                        <li class="nav-item">
+                            <a href="/admin/permits/business"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/business') ? 'active fw-bold' : '' ?>">
+                                Business Permits
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/permits/workingpermit"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/workingpermit') ? 'active fw-bold' : '' ?>">
+                                Working Permit
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/permits/building"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/building') ? 'active fw-bold' : '' ?>">
+                                Building Permit
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/permits/electrical"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/electrical') ? 'active fw-bold' : '' ?>">
+                                Electrical Permit
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/permits/cuttingtrees"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/cuttingtrees') ? 'active fw-bold' : '' ?>">
+                                Permit for Cutting Trees
+
+                            </a>
+                        </li>     
+                        
+                        <li class="nav-item">
+                            <a href="/admin/permits/fencing"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/fencing') ? 'active fw-bold' : '' ?>">
+                                Fencing Permit
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/permits/filmpermit"
+                            class="nav-link <?= ($currentUrl === '/admin/permits/filmpermit') ? 'active fw-bold' : '' ?>">
+                                Film Making Permit
+
+                            </a>
+                        </li> 
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item nav-item-submenu <?= $isClearanceActive ? 'nav-item-expanded nav-item-open' : '' ?>">
+                    <a href="#" class="nav-link nav-link-admin <?= $isClearanceActive ? 'active fw-bold' : '' ?>">
+                        <i class="ph ph-file"></i>
+                        <span>Clearances</span>
+                    </a>
+
+                    <ul class="nav-group-sub collapse <?= $isClearanceActive ? 'show' : '' ?>">
+                        <li class="nav-item">
+                            <a href="/admin/clearances/barangayClearances"
+                            class="nav-link <?= ($currentUrl === '/admin/clearances/barangayClearances') ? 'active fw-bold' : '' ?>">
+                                Barangay Clearance
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/clearances/barangayIndigents"
+                            class="nav-link <?= ($currentUrl === '/admin/clearances/barangayIndigents') ? 'active fw-bold' : '' ?>">
+                                Barangay Indigent
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/clearances/financialAssistance"
+                            class="nav-link <?= ($currentUrl === '/admin/clearances/financialAssistance') ? 'active fw-bold' : '' ?>">
+                                Financial Assistance
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                
 
                 <li class="nav-item nav-item-submenu <?= $isBlotterActive ? 'nav-item-expanded nav-item-open' : '' ?>">
                     <a href="#" class="nav-link nav-link-admin <?= $isBlotterActive ? 'active fw-bold' : '' ?>">
@@ -136,9 +214,9 @@ $isBlotterActive = strpos($currentUrl, '/admin/blotters') === 0;
 
                     <ul class="nav-group-sub collapse <?= $isBlotterActive ? 'show' : '' ?>">
                         <li class="nav-item">
-                            <a href="/admin/blotters"
-                            class="nav-link <?= ($currentUrl === '/admin/blotters') ? 'active fw-bold' : '' ?>">
-                                List of Blotter
+                            <a href="/admin/blotters/complaints"
+                            class="nav-link <?= ($currentUrl === '/admin/blotters/complaints') ? 'active fw-bold' : '' ?>">
+                                List of Complaints
                             </a>
                         </li>
 

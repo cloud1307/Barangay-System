@@ -4,16 +4,16 @@
 ?>
 
 <body class="">
-    <?php include('header.php'); ?>
+    <?php include __DIR__ . '/../header.php'; ?>
     <div class="page-content admin-cover">
-        <?php include('sidebar.php'); ?>
+        <?php include(__DIR__ . '/../sidebar.php'); ?>
         <div class="content-wrapper">
             <div class="content-inner">
                 <div class="page-header shadow header-color">
                         <div class="page-header-content d-lg-flex">
                             <div class="d-flex">
                                 <h4 class="page-title mb-0">
-                                    General - <span class="fw-normal">Blotters</span>
+                                    General - <span class="fw-normal">Complaints</span>
                                 </h4>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 <div class="card">
                                     <div class="card-header">                                        
                                        <div class="card-title modal-footer justify-content-between">
-                                                <h6 class="mb-0 text-uppercase">All Complaints</h6>
+                                                <h6 class="mb-0 text-uppercase">List of Complaints</h6>
                                                 
 												<a href="#modal_position" data-bs-toggle="modal" data-bs-target="#modal_position"
                                                     class="btn btn-outline-success <?= ($currentUrl === '/admin/positions') ? 'active fw-bold' : '' ?>">
@@ -50,7 +50,7 @@
                                                 <thead>
                                                     <tr class="text-uppercase">
                                                         <th>Date Filed</th>
-                                                        <th>Complaintant</th>
+                                                        <th>Complainant</th>
                                                         <th>Person to Complain</th>
                                                         <th>Complaint</th>
                                                         <th>Status</th>                                                           
@@ -102,7 +102,7 @@
     <script>
         $('#subjectTable').DataTable();
     </script>
-    <?php include(__DIR__ . '/../modals.php'); ?>
+    <?php include(__DIR__ . '../../../modals.php'); ?>
 </body>
 
 </html>
