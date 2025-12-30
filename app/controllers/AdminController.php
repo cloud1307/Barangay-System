@@ -67,7 +67,11 @@ class AdminController
     public function households()
     {
         loadView("head");
-        loadView("admin/households");
+        //loadView("admin/households");
+
+        $model = new HouseholdModel();
+        $data['households'] = $model->getAllHouseholds();
+        loadView('admin/households', $data);
     }
 
     public function permits()

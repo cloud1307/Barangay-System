@@ -90,7 +90,7 @@ $isBlotterActive = strpos($currentUrl, '/admin/blotters') === 0;
                 <li class="nav-item mb-1">
                     <a href="/admin/puroks"
                         class="nav-link nav-link-admin <?= ($currentUrl == '/admin/puroks') ? 'active fw-bold' : '' ?>">
-                        <i class="ph ph-building"></i>
+                        <i class="ph ph-buildings"></i>
                         <span>
                             Purok/Zone
                         </span>
@@ -100,7 +100,7 @@ $isBlotterActive = strpos($currentUrl, '/admin/blotters') === 0;
                 <li class="nav-item mb-1">
                     <a href="/admin/permits"
                         class="nav-link nav-link-admin <?= ($currentUrl == '/admin/permits') ? 'active fw-bold' : '' ?>">
-                        <i class="ph ph-file"></i>
+                        <i class="ph ph-files"></i>
                         <span>
                             Permits
                         </span>

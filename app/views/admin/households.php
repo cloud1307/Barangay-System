@@ -1,5 +1,5 @@
-<?php $model = new PositionModel();
-        $Positions = $model->getAllPositions();
+<?php $model = new HouseholdModel();
+        $Households = $model->getAllHouseholds();
     //  $currentUrl = $_SERVER['REQUEST_URI'];
 ?>
 
@@ -35,7 +35,7 @@
                                 <div class="card">
                                     <div class="card-header">                                        
                                        <div class="card-title modal-footer justify-content-between">
-                                                <h6 class="mb-0 text-uppercase">All Positions</h6>
+                                                <h6 class="mb-0 text-uppercase">List of Household</h6>
                                                 
 												<a href="#modal_position" data-bs-toggle="modal" data-bs-target="#modal_position"
                                                     class="btn btn-outline-success <?= ($currentUrl === '/admin/positions') ? 'active fw-bold' : '' ?>">
@@ -48,14 +48,18 @@
                                             <table class="table table-hover table-bordered" id="subjectTable">
                                                 <thead>
                                                     <tr class="text-uppercase">
-                                                        <th>Positions</th>                                                        
+                                                        <th>Purok/Zone</th>
+                                                        <th>Head of Household</th>
+                                                        <th>No. of Family Members</th>                                                        
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($Positions as $position) : ?>
+                                                    <?php foreach ($Households as $household) : ?>
                                                     <tr>
-                                                        <td><?= htmlspecialchars($position['varPosition']) ?></td>                                                        
+                                                        <td><?= htmlspecialchars($household['purok_zone']) ?></td>
+                                                        <td><?= htmlspecialchars($household['varLastName']).", ".htmlspecialchars($household['varFirstName'])." ".htmlspecialchars($household['varMiddleName']) ?></td>
+                                                        <td><?= htmlspecialchars($household['numberOfMembers']) ?></td>                                                       
                                                         <td class="text-center">
                                                             <div class="d-inline-flex">
                                                                 <div class="dropdown">
