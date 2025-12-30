@@ -1,0 +1,158 @@
+<?php
+
+date_default_timezone_set('Asia/Manila');
+
+define('APP_DIR', __DIR__ . '/app/');
+define('CONTROLLER_DIR', APP_DIR . 'controllers/');
+define('MODEL_DIR', APP_DIR . 'models/');
+define('VIEW_DIR', APP_DIR . 'views/');
+
+$commands = [
+    'make:controller' => 'Create a new controller (with basic methods)',
+    'make:model'      => 'Create a new model',
+    'make:view'       => 'Create a view template file',
+    'list'            => 'List available commands',
+];
+
+if ($argc < 2) {
+    showHelp();
+    exit;
+}
+
+$cmd = $argv[1];
+$args = array_slice($argv, 2);
+
+switch ($cmd) {
+    case 'make:controller':
+        makeController($args);
+        break;
+    case 'make:model':
+        makeModel($args);
+        break;
+    case 'make:view':
+        makeView($args);
+        break;
+    case 'list':
+        showHelp();
+        break;
+    default:
+        echo "Unknown command: $cmd\n";
+        showHelp();
+        exit(1);
+}
+exit;
+
+function showHelp()
+{
+    global $commands;
+    echo "Available commands:\n";
+    foreach ($commands as $c => $desc) {
+        printf("  %-20s %s\n", $c, $desc);
+    }
+}
+
+function makeController(array $args)
+{
+    if (empty($args)) {
+        echo "Usage: dew make:controller Name\n";
+        return;
+    }
+    $name = ucfirst($args[0]);
+    $class = "{$name}Controller";
+    $file = CONTROLLER_DIR . "{$class}.php";
+    if (file_exists($file)) {
+        echo "Controller already exists: $file\n";
+        return;
+    }
+    $template = <<<PHP
+<?php
+session_start();
+
+class {$class}
+{
+    private \$requestMethod, \$role;
+
+    public function __construct()
+    {
+        \$this->requestMethod = \$_SERVER['REQUEST_METHOD'];
+        session_start();
+        \$this->role = \$_SESSION['user_role'] ?? false;
+    }
+}
+PHP;
+    file_put_contents($file, $template);
+    echo "Created controller: $file\n";
+}
+
+function makeModel(array $args)
+{
+    if (empty($args)) {
+        echo "Usage: dew make:model Name\n";
+        return;
+    }
+    $name = ucfirst($args[0]);
+    $file = MODEL_DIR . "{$name}Model.php";
+    if (file_exists($file)) {
+        echo "Model already exists: $file\n";
+        return;
+    }
+    $table = strtolower($args[0]);
+    $template = <<<PHP
+<?php
+
+class {$name}Model extends BaseModel
+{
+    protected \$table = 'tbl_{$table}s';
+
+    public function get(\${$table}_id)
+    {
+        \$query = "SELECT * FROM \$this->table WHERE {$table}_id = ?";
+        return \$this->queryBuilder(\$query, ['i', \${$table}_id])->fetch_assoc();
+    }
+
+    public function getAll()
+    {
+        \$query = "SELECT * FROM \$this->table";
+        return \$this->db->query(\$query)->fetch_all(MYSQLI_ASSOC);
+    }
+}
+PHP;
+    file_put_contents($file, $template);
+    echo "Created model: $file\n";
+}
+
+function makeView(array $args)
+{
+    if (count($args) < 2) {
+        echo "Usage: dew make:view folder viewName\n";
+        return;
+    }
+    $folder = $args[0];
+    $view = $args[1];
+    $dir = VIEW_DIR . "{$folder}/";
+    if (!is_dir($dir)) mkdir($dir, 0755, true);
+    $file = $dir . "{$view}.php";
+    if (file_exists($file)) {
+        echo "View already exists: $file\n";
+        return;
+    }
+    $template = <<<HTML
+<body class="">
+    <?php include('header.php'); ?>
+    <div class="page-content admin-cover">
+        <?php include('sidebar.php'); ?>
+        <div class="content-wrapper">
+            <div class="content-inner">
+                <div class="content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+HTML;
+    file_put_contents($file, $template);
+    echo "Created view: $file\n";
+}

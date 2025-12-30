@@ -1,0 +1,312 @@
+
+
+<body class="">
+    <?php include('header.php'); ?>
+    <div class="page-content admin-cover">
+        <?php include('sidebar.php'); ?>
+        <div class="content-wrapper">
+            <div class="content-inner">
+                <div class="content">
+
+
+                    <!-- Dashboard content -->
+					<div class="row">
+						<div class="col-xl-12">	
+							<!-- Quick stats boxes -->
+							<div class="card">	
+								<div class="card-header">
+										<div class="card-title modal-footer justify-content-between">
+												<h5 class="mb-0">Officials Information</h5>
+										</div>
+								<form class="needs-validation" action="#" novalidate method="POST">
+										
+									<div class="row">
+											<div class="form-label col-lg-12">												
+												<label class="form-label">Employee Number</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<input type="text" name="EmployeeNumber" class="form-control" placeholder="0000000000" id="mask_employeeID" Required>
+														<div class="invalid-feedback">Enter Employee Number</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph ph-user-circle text-muted"></i>
+														</div>															
+													</div>				                                
+											</div>
+											<div class="form-label col-lg-12">												
+												<label class="form-label">Last Name</label>
+													<div class="form-control-feedback">
+														<input type="text" name="lastName" class="form-control text-uppercase" placeholder="Enter LastName" Required>
+														<div class="invalid-feedback">Enter LastName</div>															
+													</div>				                                
+											</div>
+											<div class="form-label col-lg-12">												
+												<label class="form-label">First Name</label>
+													<div class="form-control-feedback">
+														<input type="text" name="firstName" class="form-control text-uppercase" placeholder="Enter FirstName" Required>
+														<div class="invalid-feedback">Enter FirstName</div>															
+													</div>				                                
+											</div>
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Middle Name or N/A</label>
+													<div class="form-control-feedback">
+														<input type="text" name="middleName" class="form-control text-uppercase" placeholder="Enter MiddleName or N/A" >
+														<div class="invalid-feedback">Enter MiddleName</div>															
+													</div>				                                
+											</div>
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Extension Name (eg. Jr., Sr.) or  N/A</label>
+													<div class="form-control-feedback">
+														<input type="text" name="extension" class="form-control text-uppercase" placeholder="Enter Extension (eg. Jr., Sr.) or N/A " >
+														<div class="invalid-feedback">Enter Extension Name</div>															
+													</div>				                                
+											</div>
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Gender</label>
+													<div class="form-control-feedback">
+														<select class="form-select" name="gender" Required>
+															<option value="">Select Gender</option>
+															<option value="Male">Male</option>
+															<option value="Female">Female</option>
+														</select>
+														<div class="invalid-feedback">Select Gender</div>															
+													</div>																													                                
+											</div>
+											<div class="form-label col-lg-6">
+												<label class="form-label">CCT Email Address</label>
+												<div class="form-control-feedback form-control-feedback-start input-group">
+													<input type="text" name="email" class="form-control" placeholder="••••••••" Required>
+													<span class="input-group-text">@citycollegeoftagaytay.edu.ph</span>
+													<div class="invalid-feedback">Enter your Email</div>
+													<div class="form-control-feedback-icon">
+														<i class="ph-envelope text-muted"></i>
+													</div>
+												</div>
+											</div>
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Contact Number</label>
+													<div class="form-control-feedback form-control-feedback-start">
+															<input type="text" name="contactNumber" class="form-control" placeholder="{63}900-0000-000" id="mask_phone" Required>										
+														<div class="invalid-feedback">Enter Contact Number {63}900-0000-000</div>																											
+														<div class="form-control-feedback-icon">
+															<i class="ph-phone text-muted"></i>
+														</div>
+													</div>
+											</div>
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Alternative Email Address</label>
+													<div class="form-control-feedback form-control-feedback-start">
+															<input type="email" name="alternativeEmail" class="form-control" placeholder="Enter Alternative Email Address" Required>										
+														<div class="invalid-feedback">Enter Alternative Email Address</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph-envelope text-muted"></i>
+														</div>
+													</div>
+											</div>
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Civil Status</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<select class="form-select" name="civilStatus" Required>
+															<option value="">Select Civil Status</option>
+															<option value="Single">Single</option>
+															<option value="Married">Married</option>
+															<option value="Widowed">Widowed</option>
+															<option value="Divorce">Divorce</option>
+															<option value="Separated">Separated</option>
+															<option value="Annulled">Annulled</option>  
+														</select>
+														<div class="invalid-feedback">Select Civil Status</div>
+													</div>															                                
+											</div>											
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Date of Birth</label>
+													<div class="form-control-feedback form-control-feedback-start">
+															<input type="text" name="dateOfBirth" class="form-control datepicker-date-format" placeholder="Enter date in yyyy-mm-dd"  Required>										
+														<div class="invalid-feedback">Enter Date of Birth</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph-calendar text-muted"></i>
+														</div>
+													</div>
+											</div>
+
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Place of Birth</label>
+													<div class="form-control-feedback">
+														<input type="text" name="placeOfBirth" class="form-control text-uppercase" placeholder="Enter Place of Birth" Required>
+														<div class="invalid-feedback">Enter Place of Birth</div>															
+													</div>				                                
+											</div>
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">House No. (if not available N/A)</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<input type="text" name="houseNo" class="form-control text-uppercase" placeholder="Enter House Number" Required>
+														<div class="invalid-feedback">Enter House Number</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph-house text-muted"></i>
+														</div>															
+													</div>				                                
+											</div>
+
+											<div class="form-label col-lg-6">												
+												<label class="form-label">Street/Purok/Poblacion/Building/Floor</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<input type="text" name="street" class="form-control text-uppercase" placeholder="Enter Street/Building/Floor" Required>
+														<div class="invalid-feedback">Enter Street/Building/Floor</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph-buildings text-muted"></i>
+														</div>														
+													</div>				                                
+											</div>											
+
+											<!-- <div class="form-label col-lg-4">												
+												<label class="form-label">Province</label>
+													<div class="form-control-feedback ">
+														<select class="form-control" name="province" id="province" Required>
+															<option value="">Select Province</option>
+															<?php //if (!empty($provinces)): ?>
+                                                            <?php //foreach ($provinces as $prov): ?>
+                                                                <option value="<?//= htmlspecialchars($prov['provid']) ?>">
+                                                                    <?//= htmlspecialchars($prov['prov']) ?>
+                                                                </option>
+                                                            <?php //endforeach; ?>
+                                                        <?php //endif; ?>
+														</select>
+														<div class="invalid-feedback">Select Province</div>
+													</div>															                                
+											</div>
+											
+											<div class="form-label col-lg-4">												
+												<label class="form-label">City/Municipality</label>
+													<div class="form-control-feedback ">
+														<select class="form-control" name="citymun" id="cityMun" Required>
+															<option value="">Select City/Municipality</option>
+														</select>
+														<div class="invalid-feedback">Select City/Municipality</div>
+													</div>															                                
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Barangay</label>
+													<div class="form-control-feedback ">
+														<select class="form-control" name="barangay" id="barangay" Required>
+															<option value="">Select Barangay</option>
+														</select>
+														<div class="invalid-feedback">Select Barangay</div>
+													</div>															                                
+											</div> -->
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">School or Department</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<select class="form-select" name="school" Required>
+															<option value="">Select School</option>
+															<?php if (!empty($school)): ?>
+																<?php foreach ($school as $row): ?>
+																	<option value="<?= htmlspecialchars($row['intSchoolID']) ?>"><?= htmlspecialchars($row['varSchoolName']) ?></option>
+																<?php endforeach; ?>
+															<?php else: ?>
+																<option value="">No School Available</option>
+															<?php endif; ?>
+														</select>
+														<div class="invalid-feedback">Select School</div>
+													</div>															                                
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Designation</label>
+												<div class="form-control-feedback form-control-feedback-start">
+													<select class="form-select" name="position" Required>
+														<option value="">Select Designation</option>
+														<?php if (!empty($positions)): ?>
+															<?php foreach ($positions as $position): ?>
+																<option value="<?= htmlspecialchars($position['intPositionID']) ?>"><?= htmlspecialchars($position['varPosition']) ?></option>
+															<?php endforeach; ?>
+														<?php else: ?>
+															<option value="">No Designation Available</option>
+														<?php endif; ?>
+													</select>
+													<div class="invalid-feedback">Select Designation</div>
+												</div>						
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Employment Date</label>
+													<div class="form-control-feedback form-control-feedback-start">
+															<input type="text" name="employmentDate" class="form-control datepicker-date-format1" placeholder="Enter date in yyyy-mm-dd" Required >										
+														<div class="invalid-feedback">Enter Date of Employment</div>
+														<div class="form-control-feedback-icon">
+															<i class="ph-calendar text-muted"></i>
+														</div>
+													</div>
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Job status</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<select class="form-select" name="jobStatus" Required>
+															<option value="">Select Job Status</option>
+															<option value="Contract of Service">Contract of Service</option>	
+															<option value="Permanent">Permanent</option>
+															<option value="Job Order">Job Order</option>													
+															<option value="Contractual">Contractual</option>
+															<option value="Co-Terminus">Co-Terminus</option>
+														</select>
+														<div class="invalid-feedback">Select Job Status</div>
+													</div>												                                
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">Job Catergory</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<select class="form-select" name="jobCategory" Required>
+															<option value="">Select Job Category</option>
+															<option value="Non-Teaching Personnel">Non-Teaching Personnel</option>
+															<option value="Administrative Staff">Administrative Staff</option>	
+															<option value="Fulltime Instructor">Fulltime Instructor</option>	
+															<option value="Part-Time Instructor">Part-Time Instructor</option>															
+														</select>
+														<div class="invalid-feedback">Select Job Category</div>
+													</div>												                                
+											</div>
+
+											<div class="form-label col-lg-4">												
+												<label class="form-label">User Level</label>
+													<div class="form-control-feedback form-control-feedback-start">
+														<select class="form-select" name="userlevel" Required>
+															<option value="">Select User Level</option>
+															<option value="System Administrator">System Administrator</option>																												
+															<option value="Faculty">Faculty</option>
+															<option value="Administrative Staff">Administrative Staff</option>
+															<option value="HR Head">HR Head</option>
+														</select>
+														<div class="invalid-feedback">Select User Level</div>
+													</div>																                                
+											</div>
+
+
+										</div>
+
+										<div class="form-label modal-footer">
+											<a href="../view/view_employee.php" class="btn btn-link">Close</a>
+											<button type="submit" class="btn btn-primary">Add Emplyoee</button>
+										</div>
+								</form>
+
+								</div>
+							</div>							
+							<!-- /quick stats boxes -->
+						</div>						
+					</div>
+					<!-- /dashboard content -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
