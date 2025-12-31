@@ -19,7 +19,7 @@ return [
 
     //Clearances
     '/admin/clearances/barangayClearances' => 'Admin@clearances',
-    '/admin/clearances/barangayIndigents' => 'Admin@barangayIndigents',
+    '/admin/clearances/barangayIndigency' => 'Admin@barangayIndigency',
     '/admin/clearances/financialAssistance' => 'Admin@financialAssistance',
 
     //Permits

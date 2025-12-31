@@ -48,13 +48,15 @@
                                             <table class="table table-hover table-bordered" id="subjectTable">
                                                 <thead>
                                                     <tr class="text-uppercase">
+                                                        <th>No</th>
                                                         <th>Positions</th>                                                        
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($Positions as $position) : ?>
+                                                    <?php $number = 1; foreach ($Positions as $position) : ?>
                                                     <tr>
+                                                        <td><?= htmlspecialchars($number++) ?>
                                                         <td><?= htmlspecialchars($position['varPosition']) ?></td>                                                        
                                                         <td class="text-center">
                                                             <div class="d-inline-flex">

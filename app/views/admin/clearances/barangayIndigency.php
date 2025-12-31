@@ -8,7 +8,7 @@
                         <div class="page-header-content d-lg-flex">
                             <div class="d-flex">
                                 <h4 class="page-title mb-0">
-                                    General - <span class="fw-normal">clearances</span>
+                                    General - <span class="fw-normal">Clearances</span>
                                 </h4>
                             </div>
                         </div>

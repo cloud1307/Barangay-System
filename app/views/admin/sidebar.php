@@ -189,9 +189,9 @@ $isPermitsActive = strpos($currentUrl, '/admin/permits') === 0;
                         </li>
 
                         <li class="nav-item">
-                            <a href="/admin/clearances/barangayIndigents"
-                            class="nav-link <?= ($currentUrl === '/admin/clearances/barangayIndigents') ? 'active fw-bold' : '' ?>">
-                                Barangay Indigent
+                            <a href="/admin/clearances/barangayIndigency"
+                            class="nav-link <?= ($currentUrl === '/admin/clearances/barangayIndigency') ? 'active fw-bold' : '' ?>">
+                                Barangay Indigency
                             </a>
                         </li>
 

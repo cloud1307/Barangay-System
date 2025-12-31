@@ -129,10 +129,10 @@ class AdminController
         loadView("admin/clearances/barangayClearances");
     }
 
-    public function barangayIndigents()
+    public function barangayIndigency()
     {
         loadView("head");
-        loadView("admin/clearances/barangayIndigents");
+        loadView("admin/clearances/barangayIndigency");
     }
 
     public function financialAssistance()
