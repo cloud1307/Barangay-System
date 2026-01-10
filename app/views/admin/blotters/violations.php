@@ -1,6 +1,6 @@
 <?php 
-    $model = new ViolationModel();
-    $violations = $model->getAllViolations();
+    //$model = new ViolationModel();
+    //$violations = $model->getAllViolations();
     //  $currentUrl = $_SERVER['REQUEST_URI'];
 ?>
 <body class="">

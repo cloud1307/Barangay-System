@@ -166,14 +166,22 @@ class AdminController
 
     public function complaints()
     {
+        $data = [];
+        $complaintModel = new ComplaintModel();
+        $complaints = $complaintModel->getAllComplaints();
+        $data['complaints'] = $complaints;
         loadView("head");
-        loadView("admin/blotters/complaints");
+        loadView("admin/blotters/complaints", $data);
     }
 
     public function violations()
     {
+        $data = [];
+        $violationModel = new ViolationModel();
+        $violations = $violationModel->getAllViolations();
+        $data['violations'] = $violations;
         loadView("head");
-        loadView("admin/blotters/violations");
+        loadView("admin/blotters/violations", $data);
     }
 
 

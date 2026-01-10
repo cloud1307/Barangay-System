@@ -16,6 +16,7 @@ class ViolationController
     {        
         $violations = $this->ViolationModel->getAllViolations();
         loadView("head");
+        //require_once APP_ROOT . '/app/views/admin/blotters/violations.php';
         loadView("admin/blotters/violations", ['violations' => $violations]);
     }
  
