@@ -111,25 +111,26 @@
 
 <!-- Position Modal -->
 <div id="modal_position" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content dashboard-background text-white">
 				<div class="modal-header bg-success text-white border-0" id="modal-header">
-					<h5 class="modal-title" id="modal-title"><i class="ph-plus me-2"></i>Add Position</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					<h5 class="modal-title" id="modal-AddpositionModalLabel"><i class="ph-plus me-2"></i>Add Position</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-						<form class="needs-validation" id="positionForm" action="#" novalidate method="POST">
-							<div class="modal-body">
+						<div class="modal-body">
+                            <form class="needs-validation" id="AddpositionForm">
 								<input type="hidden" name="position_id" id="position_id">
 									<div class="mb-3">
 										<label class="form-label">Position</label>
 										<div class="form-control-feedback input-group">
-											<input type="text" name="position" class="form-control text-propercase " placeholder ="Enter Position" required>
+											<input type="text" id="addPosition" name="position_name" class="form-control text-propercase " placeholder ="Enter Position" required>
 										</div>
 									</div>
 								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-success" id="btn-save">Add Position</button>
+                                <button type="submit" class="btn btn-success">Add Position</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								
 							</div>
 						</form>
 			</div>

@@ -39,12 +39,12 @@
 												<a href="/admin/officials"
                                                     class="btn btn-outline-success <?= ($currentUrl === '/admin/officials') ? 'active fw-bold' : '' ?>">
                                                     <i class="ph-users me-2"></i> Add Officials
-                                                    </a>
+                                                </a>
 										</div>	
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table class="table table-hover table-bordered" id="subjectTable">
+                                            <table class="table table-basic dataTable no-footer table-hover" id="subjectTable" aria-describedby="DataTables_Table_0_info">
                                                 <thead>
                                                     <tr class="text-uppercase">
                                                         <th>Officials</th>

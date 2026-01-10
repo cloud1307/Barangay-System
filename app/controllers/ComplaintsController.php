@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class BloterController
+class ComplaintsController
 {
     private $requestMethod, $role;
 

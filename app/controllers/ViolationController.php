@@ -1,25 +1,25 @@
 <?php
 session_start();
 
-class PositionController
+class ViolationController
 {
-    private $requestMethod, $role, $PositionModel;
+    private $requestMethod, $role, $ViolationModel;
 
     public function __construct()
     {
         $this->requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->role = $_SESSION['user_role'] ?? false;
-        $this->PositionModel = new PositionModel();
+        $this->ViolationModel = new ViolationModel();
     }
 
-    public function positions()
+    public function violations()
     {        
-        $positions = $this->PositionModel->getAllPositions();        
+        $violations = $this->ViolationModel->getAllViolations();
         loadView("head");
-        loadView("admin/positions", ['positions' => $positions]);
+        loadView("admin/blotters/violations", ['violations' => $violations]);
     }
  
-    public function addPosition()
+    public function addViolation()
     {
         header('Content-Type: application/json');
 
@@ -32,41 +32,41 @@ class PositionController
             exit;
         }
 
-        $position_name = trim($_POST['position_name'] ?? '');
+        $violation_name = trim($_POST['violation_name'] ?? '');
 
-        if ($position_name === '') {
+        if ($violation_name === '') {
             echo json_encode([
                 'success' => false,
                 'type'    => 'warning',
-                'message' => 'Position name is required.'
+                'message' => 'Violation name is required.'
             ]);
             exit;
         }
 
-        if ($this->PositionModel->isDuplicatePosition($position_name)) {
+        if ($this->ViolationModel->isDuplicateViolation($violation_name)) {
             echo json_encode([
                 'success' => false,
                 'type'    => 'warning',
-                'message' => 'Position already exists.'
+                'message' => 'Violation already exists.'
             ]);
             exit;
         }
 
-        $insertId = $this->PositionModel->createPosition([
-            'position_name' => $position_name
+        $insertId = $this->ViolationModel->createViolation([
+            'violation_name' => $violation_name
         ]);
 
         if ($insertId) {
             echo json_encode([
                 'success' => true,
                 'type'    => 'success',
-                'message' => 'Position added successfully.'
+                'message' => 'Violation added successfully.'
             ]);
         } else {
             echo json_encode([
                 'success' => false,
                 'type'    => 'error',
-                'message' => 'Failed to add position.'
+                'message' => 'Failed to add violation.'
             ]);
         }
         exit;
@@ -74,46 +74,46 @@ class PositionController
 
 
 
-    // Edit position
-   public function editPosition()
+    // Edit violation
+   public function editViolation()
     {
         header('Content-Type: application/json');
 
-        $position_id   = $_POST['position_id'] ?? null;
-        $position_name = trim($_POST['position_name'] ?? '');
+        $violation_id   = $_POST['violation_id'] ?? null;
+        $violation_name = trim($_POST['violation_name'] ?? '');
 
-        if (!$position_id || $position_name === '') {
+        if (!$violation_id || $violation_name === '') {
             echo json_encode([
                 'success' => false,
                 'type'    => 'warning',
-                'message' => 'Position name is required.'
+                'message' => 'Violation name is required.'
             ]);
             exit;
         }
 
         // Prevent duplicate (exclude current ID)
-        if ($this->PositionModel->isDuplicatePosition($position_name, $position_id)) {
+        if ($this->ViolationModel->isDuplicateViolation($violation_name, $violation_id)) {
             echo json_encode([
                 'success' => false,
                 'type'    => 'warning',
-                'message' => 'Position already exists.'
+                'message' => 'Violation already exists.'
             ]);
             exit;
         }
 
-        $result = $this->PositionModel->editPosition($position_id, $position_name);
+        $result = $this->ViolationModel->editViolation($violation_id, $violation_name);
 
         if ($result) {
             echo json_encode([
                 'success' => true,
                 'type'    => 'success',
-                'message' => 'Position updated successfully.'
+                'message' => 'Violation updated successfully.'
             ]);
         } else {
             echo json_encode([
                 'success' => false,
                 'type'    => 'error',
-                'message' => 'Failed to update position.'
+                'message' => 'Failed to update violation.'
             ]);
         }
 
@@ -122,7 +122,7 @@ class PositionController
 
 
 
-    public function deletePosition()
+    public function deleteViolation()
     {
         header('Content-Type: application/json');
 
@@ -135,30 +135,30 @@ class PositionController
             exit;
         }
 
-        $position_id = $_POST['position_id'] ?? null;
+        $violation_id = $_POST['violation_id'] ?? null;
 
-        if (!$position_id) {
+        if (!$violation_id) {
             echo json_encode([
                 'success' => false,
                 'type'    => 'warning',
-                'message' => 'Position ID is required.'
+                'message' => 'Violation ID is required.'
             ]);
             exit;
         }
 
-        $result = $this->PositionModel->deletePosition($position_id);
+        $result = $this->ViolationModel->deleteViolation($violation_id);
 
         if ($result) {
             echo json_encode([
                 'success' => true,
                 'type'    => 'success',
-                'message' => 'Position deleted successfully.'
+                'message' => 'Violation deleted successfully.'
             ]);
         } else {
             echo json_encode([
                 'success' => false,
                 'type'    => 'error',
-                'message' => 'Failed to delete position.'
+                'message' => 'Failed to delete violation.'
             ]);
         }
 
